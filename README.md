@@ -1,5 +1,5 @@
 ##  OSMAN IBRAHIM 
-i am research assistant (RA) in [Hydraulics Research Canter](https://hrc-sudan.sd/) -[Ministry of Irrigation and Water Resources- Sudan](http://www.wre.gov.sd/cgi-sys/suspendedpage.cgi?fbclid=IwAR0GeKxkwwtGqG-V72Y_A3Dv6dqFjXemqxlHPktCBhC3al6Qm7roAZxNlOs) check out my [page](https://hrc-sudan.sd/index.php/people2/) in Hydraulics Research Canter 
+i am research assistant (RA) in [Hydraulics Research Canter](https://hrc-sudan.sd/) -[Ministry of Irrigation and Water Resources- Sudan](http://www.wre.gov.sd/cgi-sys/suspendedpage.cgi?fbclid=IwAR0GeKxkwwtGqG-V72Y_A3Dv6dqFjXemqxlHPktCBhC3al6Qm7roAZxNlOs) check out my [page](https://hrc-sudan.sd/index.php/people2/) in Hydraulics Research Canter . 
 ### Hi there 👋
 
 - 🔭 I’m currently working on ...
