@@ -1,7 +1,7 @@
 ##  OSMAN IBRAHIM 
 i am research assistant (RA) in [Hydraulics Research Canter](https://hrc-sudan.sd/) -[Ministry of Irrigation and Water Resources- Sudan](http://www.wre.gov.sd/cgi-sys/suspendedpage.cgi?fbclid=IwAR0GeKxkwwtGqG-V72Y_A3Dv6dqFjXemqxlHPktCBhC3al6Qm7roAZxNlOs) check out my [page](https://hrc-sudan.sd/index.php/people2/) in Hydraulics Research Canter . 
 ### PROFESSIONAL PROFILE :
-"I am a BSc. Survey Engineer with over 6 years of extensive
+"I am a BSc. Surveying  Engineer with over 6 years of extensive
 experience in large-scale infrastructure projects, including
 roads, dams, GIS, and remote sensing. Skilled in site
 supervision, construction, accountancy, and tendering, I
@@ -12,8 +12,8 @@ Sudanese Engineering Society, I have led design reviews,
 feasibility studies, construction supervision, and stakeholder
 liaison, ensuring timely and effective project completion"
 ### EDUCATIONAL :
-* MSc in Geomatics Engineering-[KARADENIZ TECHNICAL UNIVERSITY](https://www.ktu.edu.tr/), (2024)
-* BSc in Surveying Engineering- [OMDURMAN ISLAMIC UNIVERSITY](http://www.oiu.edu.sd), (2017)
+* **MSc** in _Geomatics Engineering_-[KARADENIZ TECHNICAL UNIVERSITY](https://www.ktu.edu.tr/), (2024)
+* **BSc** in _Surveying Engineering_- [OMDURMAN ISLAMIC UNIVERSITY](http://www.oiu.edu.sd), (2017)
 
 ### Hi there 👋
 
