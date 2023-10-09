@@ -14,17 +14,45 @@ liaison, ensuring timely and effective project completion"
 ### EDUCATIONAL :
 * **MSc** in _Geomatics Engineering_-[KARADENIZ TECHNICAL UNIVERSITY](https://www.ktu.edu.tr/), (2024)
 * **BSc** in _Surveying Engineering_- [OMDURMAN ISLAMIC UNIVERSITY](http://www.oiu.edu.sd), (2017)
+### LANGUAGE SKILLS:
+**Mother tongue(s)**: Arabic                  
 
-### Hi there 👋
+**English**
+LISTENING C2
+READING C2
+WRITING C1
+SPOKEN PRODUCTION C1
+SPOKEN INTERACTION C1
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
+**Turkish**
+LISTENING C1
+READING C1
+WRITING C1
+SPOKEN PRODUCTIONC1
+SPOKEN INTERACTION C1
+### TOP SKILLS :
+* Geospatial Data Analysis & Surveying Techniques
+* Geodetic Datum and Coordinate Systems
+* Data Visualization
+* Spatial Analysis and Modeling
+* Team Leadership
+* Geospire Expert
+* Geomatics Standards and Regulations
+* Problem-Solving and Critical Thinking
+* Communication Skills
+* Continuous Learning
+### COURSES:
+* Hydraulic Engineering in River Basins
+* Bathymetric Survey and Hydraulic Studies
+* Geographic Information Systems using QGIS
+* Training on GNSS (LEICA Viva GPS GS15) and Total Station
+* Basics of Remote Sensing and Essentials for Water
+* Harvesting Applications
+* Python for GIS Development
+* Bathymetric Survey using Kongsberg Multibeam Echo
+* Sounder
+* Projects Management
+* Uses of Surveying Engineering in Urban Planning
 <!--
 **Osman-Geomatics93/Osman-Geomatics93** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
