@@ -15,21 +15,21 @@ liaison, ensuring timely and effective project completion"
 * **MSc** in _Geomatics Engineering_-[KARADENIZ TECHNICAL UNIVERSITY](https://www.ktu.edu.tr/), (2024)
 * **BSc** in _Surveying Engineering_- [OMDURMAN ISLAMIC UNIVERSITY](http://www.oiu.edu.sd), (2017)
 ### LANGUAGE SKILLS:
-**Mother tongue(s)**: _**Arabic**_                  
+**Mother tongue(s)**: **Arabic**                 
 
-_**English**_
-LISTENING C2
-READING C2
-WRITING C1
-SPOKEN PRODUCTION C1
-SPOKEN INTERACTION C1
+_**English**_  
+LISTENING C2  
+READING C2  
+WRITING C1  
+SPOKEN PRODUCTION C1  
+SPOKEN INTERACTION C1   
 
-_**Turkish**_
-LISTENING C1
-READING C1
-WRITING C1
-SPOKEN PRODUCTIONC1
-SPOKEN INTERACTION C1
+_**Turkish**_  
+LISTENING C1  
+READING C1  
+WRITING C1  
+SPOKEN PRODUCTIONC1  
+SPOKEN INTERACTION C1  
 ### COMPETENCIES and TOP SKILLS :
 * Project Management   
 * Survey Engineering  
