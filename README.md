@@ -81,6 +81,14 @@ Address: Wad madani, Sudan, Wad madani (Sudan)
 * **uses of Surveying engineering in urban planning**    
 General Administration of Survey [ 20 Jul 2016 – 15 Oct 2016 ]
 Address: Khartoum-Sudan, Khartoum (Sudan)
+
+## projects:
+**1-Geographical information systems and remote sensing analyst**
+HRC, FAO funded project Wad Madani,
+Sudan, Jan 2020-May 2021:
+Remote Sensing (WaPOR) and Field-based Analyses for Evidence-Informed Policy Decisions and Interventions to
+Improve Water Management and Productivity of the Gezira Irrigation Scheme in Sudan.
+![alt text] (https://drive.google.com/file/d/1y3Id-15QSpiNNJHyAUES1KEGcedxOfAN/view?usp=drive_link)
 <!--
 **Osman-Geomatics93/Osman-Geomatics93** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
