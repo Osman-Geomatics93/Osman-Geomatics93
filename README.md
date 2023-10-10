@@ -48,7 +48,7 @@ SPOKEN INTERACTION C1
 * Problem-Solving and Critical Thinking
 * Communication Skills
 * Continuous Learning
-* ### COURSES:
+### COURSES:
 **#### Hydraulic Engineering in River Basins**   
 [Regional Training Center of the Hydraulics Research Institute](http://www.hri-egypt.org/) [ 20 Dec 2020 – 11 Mar 2021 ]
 Address: Delta Barrage, Egypt, 13621 Al-Kamater-Delta Barrage, Egypt (Egypt)
