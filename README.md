@@ -90,7 +90,8 @@ Sudan, Jan 2020-May 2021:
 Remote Sensing (WaPOR) and Field-based Analyses for Evidence-Informed Policy Decisions and Interventions to
 Improve Water Management and Productivity of the Gezira Irrigation Scheme in Sudan.            
 
-![](https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Famerican-map&psig=AOvVaw2OBLlanQC6k8_3V6MxoNwe&ust=1697112205923000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPD81eP57YEDFQAAAAAdAAAAABAR)
+![](https://drive.google.com/file/d/101KyYlx5zTbkeyGO3E7GIhZiu-wKOkJF/view?usp=sharing)
+
 <!--
 **Osman-Geomatics93/Osman-Geomatics93** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
