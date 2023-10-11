@@ -88,8 +88,8 @@ Address: Khartoum-Sudan, Khartoum (Sudan)
 HRC, FAO funded project Wad Madani,
 Sudan, Jan 2020-May 2021:
 Remote Sensing (WaPOR) and Field-based Analyses for Evidence-Informed Policy Decisions and Interventions to
-Improve Water Management and Productivity of the Gezira Irrigation Scheme in Sudan.
-![] (https://www.google.com/search?q=images&sca_esv=572136157&rlz=1C1BNSD_enTR1056TR1056&tbm=isch&sxsrf=AM9HkKk_KXILOpd_uakk6XMalq339Kirbw:1696925366954&source=lnms&sa=X&sqi=2&ved=2ahUKEwiEktTNg-uBAxW_2AIHHYSUBgIQ_AUoAXoECAEQAw&biw=1920&bih=923&dpr=1#imgrc=YmDohMp4T5AODM)
+Improve Water Management and Productivity of the Gezira Irrigation Scheme in Sudan.   
+![](https://drive.google.com/file/d/1y3Id-15QSpiNNJHyAUES1KEGcedxOfAN/view?usp=drive_link)
 <!--
 **Osman-Geomatics93/Osman-Geomatics93** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
