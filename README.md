@@ -1,4 +1,6 @@
 ##  OSMAN IBRAHIM 
+[![LinkedIn Badge](https://img.shields.io/badge/My-LinkedIn-blue)](www.linkedin.com/in/
+osman-o-a-ibrahim-ph-d-a02a9a197)
 i am research assistant (RA) in [Hydraulics Research Canter](https://hrc-sudan.sd/) -[Ministry of Irrigation and Water Resources- Sudan](http://www.wre.gov.sd/cgi-sys/suspendedpage.cgi?fbclid=IwAR0GeKxkwwtGqG-V72Y_A3Dv6dqFjXemqxlHPktCBhC3al6Qm7roAZxNlOs) check out my [page](https://hrc-sudan.sd/index.php/people2/) in Hydraulics Research Canter . 
 ### PROFESSIONAL PROFILE :
 "I am a BSc. Surveying  Engineer with over 6 years of extensive
