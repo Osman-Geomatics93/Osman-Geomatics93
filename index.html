@@ -1,0 +1,2629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osman Ibrahim - Senior GIS & Geomatics Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #2c5aa0;
+            --secondary-color: #1e3a8a;
+            --accent-color: #3b82f6;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-large: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--bg-gradient);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.1)" points="0,1000 1000,800 1000,1000"/></svg>');
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            color: white;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: slideInLeft 1s ease 0.5s forwards;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: slideInLeft 1s ease 0.7s forwards;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: slideInLeft 1s ease 0.9s forwards;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            opacity: 0;
+            animation: slideInRight 1s ease 1s forwards;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .profile-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .profile-avatar.css-avatar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            position: relative;
+            overflow: visible;
+        }
+
+        .avatar-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .avatar-initials {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 0.5rem;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .avatar-title {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            text-align: center;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.2);
+            }
+            100% {
+                text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 255, 255, 0.4);
+            }
+        }
+
+        .profile-avatar.css-avatar:hover .avatar-initials {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-avatar.css-avatar:hover .avatar-title {
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        /* Animated background particles */
+        .profile-avatar.css-avatar::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c, #667eea);
+            background-size: 300% 300%;
+            animation: gradientShift 4s ease infinite;
+            z-index: -1;
+        }
+
+        /* Professional icon overlay */
+        .profile-avatar.css-avatar::after {
+            content: '🎓';
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 3;
+        }
+
+        .profile-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 4rem;
+            color: white;
+            box-shadow: var(--shadow-large);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .profile-avatar.css-avatar {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            position: relative;
+            overflow: visible;
+        }
+
+        .avatar-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .avatar-initials {
+            font-size: 3rem;
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 0.5rem;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        .avatar-title {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+            text-align: center;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        @keyframes glow {
+            0% {
+                text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 255, 255, 0.2);
+            }
+            100% {
+                text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 255, 255, 0.4);
+            }
+        }
+
+        .profile-avatar.css-avatar:hover .avatar-initials {
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-avatar.css-avatar:hover .avatar-title {
+            color: white;
+            transition: color 0.3s ease;
+        }
+
+        /* Animated background particles */
+        .profile-avatar.css-avatar::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c, #667eea);
+            background-size: 300% 300%;
+            animation: gradientShift 4s ease infinite;
+            z-index: -1;
+        }
+
+        /* Professional icon overlay */
+        .profile-avatar.css-avatar::after {
+            content: '🎓';
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 3;
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .profile-avatar:hover .profile-photo {
+            transform: scale(1.1);
+        }
+
+        .profile-avatar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50%;
+            background: linear-gradient(45deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .profile-avatar:hover::before {
+            opacity: 1;
+        }
+
+        .profile-avatar.photo-loaded {
+            animation: profileGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes profileGlow {
+            0% {
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.2);
+            }
+            100% {
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px rgba(102, 126, 234, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.3);
+            }
+        }
+
+        /* Add a subtle border animation around the profile */
+        .profile-avatar::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 300% 300%;
+            z-index: -1;
+            animation: gradientRotate 4s ease infinite;
+            opacity: 0.7;
+        }
+
+        .profile-avatar.css-avatar::after {
+            content: '🎓';
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 3;
+            top: auto;
+            left: auto;
+            right: 10px;
+            bottom: 10px;
+        }
+
+        @keyframes gradientRotate {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: var(--bg-primary);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            border: 1px solid #e5e7eb;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent-color);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Experience Section */
+        .experience-timeline {
+            position: relative;
+            margin: 3rem 0;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent-color);
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 80px;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: 21px;
+            top: 0;
+            width: 18px;
+            height: 18px;
+            background: var(--accent-color);
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .experience-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .experience-card:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .company {
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        .job-period {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-large);
+        }
+
+        .project-header {
+            background: var(--bg-gradient);
+            color: white;
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .project-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            opacity: 0.7;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-period {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .education-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--success-color);
+        }
+
+        .education-card:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .degree {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .university {
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .education-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: var(--bg-gradient);
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .contact-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: #fbbf24;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .cta-buttons .btn {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+
+            .skills-grid,
+            .projects-grid,
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-timeline::before {
+                left: 15px;
+            }
+
+            .experience-item {
+                padding-left: 50px;
+            }
+
+            .experience-item::before {
+                left: 6px;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            /* Certificate mobile styles */
+            .certificates-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .certificate-filter {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                width: 100%;
+                max-width: 250px;
+                justify-content: center;
+            }
+
+            .certificate-search {
+                width: 100% !important;
+                max-width: 300px;
+            }
+
+            .certificates-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .stat-card {
+                padding: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .certificate-card {
+                margin: 0 10px;
+            }
+
+            .certificate-header {
+                padding: 1rem;
+            }
+
+            .certificate-content {
+                padding: 1rem;
+            }
+
+            .certificate-title {
+                font-size: 1.1rem;
+            }
+
+            .cert-skill {
+                font-size: 0.75rem;
+                padding: 0.25rem 0.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .certificates-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .certificate-badge {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+
+            .certificate-skills {
+                gap: 0.3rem;
+            }
+        }
+
+        /* Scroll Progress Bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(59, 130, 246, 0.2);
+            z-index: 1001;
+        }
+
+        .scroll-progress-bar {
+            height: 100%;
+            background: var(--accent-color);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        /* Certificates Section */
+        .certificates-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin-top: -1px; /* Remove any gap */
+            padding-top: 4rem;
+        }
+
+        .certificates-section .section-title {
+            color: white;
+        }
+
+        .certificates-section .section-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .certificate-search-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .certificate-search-input {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            width: 100%;
+            max-width: 350px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .certificate-search-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .certificate-search-input:focus {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .certificate-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .certificates-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .certificate-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .certificate-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 300% 100%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .certificate-card.premium {
+            border: 2px solid #ffd700;
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .certificate-card.premium::before {
+            background: linear-gradient(90deg, #ffd700, #ffed4e, #ffd700);
+        }
+
+        .certificate-card.special {
+            border: 2px solid #10b981;
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+        }
+
+        .certificate-card.special::before {
+            background: linear-gradient(90deg, #10b981, #34d399, #10b981);
+        }
+
+        .certificate-card.ongoing {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2); }
+            50% { box-shadow: 0 20px 40px rgba(16, 185, 129, 0.4); }
+        }
+
+        .certificate-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+        }
+
+        .certificate-badge {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .certificate-year {
+            background: var(--accent-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .certificate-content {
+            padding: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .certificate-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .certificate-issuer {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .certificate-duration {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .certificate-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cert-skill {
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cert-skill:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .certificate-description {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .certificate-footer {
+            padding: 1rem 1.5rem;
+            background: var(--bg-secondary);
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .cert-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cert-link:hover {
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        /* Certificate Statistics */
+        .certificates-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 600;
+        }
+
+        /* Filter Animation */
+        .certificate-card.filtered {
+            animation: fadeOut 0.3s ease;
+            opacity: 0;
+            transform: scale(0.8);
+            pointer-events: none;
+        }
+
+        .certificate-card.visible {
+            animation: fadeIn 0.5s ease;
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-20px) scale(0.8);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent-color);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: var(--shadow-medium);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <div class="logo">Osman Ibrahim</div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#education" class="nav-link">Education</a></li>
+                    <li><a href="#certificates" class="nav-link">Certificates</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Osman Ibrahim</h1>
+                    <div class="subtitle">Senior GIS & Geomatics Engineer</div>
+                    <p>Experienced professional with over 8 years in geospatial analysis, remote sensing, and water resource management. Holds 11+ professional certifications from prestigious institutions including Google, IBM, UNESCO, and leading universities.</p>
+                    <div class="cta-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fas fa-rocket"></i>
+                            View Projects
+                        </a>
+                        <a href="https://www.linkedin.com/in/osman-o-a-ibrahim-a02a9a197" class="btn btn-secondary" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                            Connect on LinkedIn
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="fas fa-envelope"></i>
+                            Get In Touch
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-card">
+                        <div class="profile-avatar css-avatar">
+                            <div class="avatar-content">
+                                <span class="avatar-initials">OI</span>
+                                <div class="avatar-title">Osman Ibrahim</div>
+                            </div>
+                        </div>
+                        <h3>Senior Engineer</h3>
+                        <p>GIS & Remote Sensing Specialist</p>
+                        <div style="margin-top: 1rem;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Trabzon, Turkey
+                        </div>
+                        <div style="margin-top: 1rem; padding: 0.5rem 1rem; background: rgba(255, 255, 255, 0.2); border-radius: 20px; font-size: 0.9rem;">
+                            <i class="fas fa-certificate" style="color: #ffd700;"></i>
+                            11+ Professional Certifications
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Passionate about leveraging geospatial technology for sustainable development and water resource management</p>
+            </div>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.1rem; line-height: 1.8;">
+                <p>I am an experienced senior surveying & geomatics engineer with over 8 years of expertise in geospatial analysis, remote sensing, and water resource management. My career has been dedicated to developing innovative spatial solutions that contribute to sustainable development goals.</p>
+                <br>
+                <p>Currently serving as a Teaching & Research Assistant at the Hydraulics Research Center in Sudan, I have successfully led national and international projects with prestigious organizations including FAO, IFAD, and UNESCO. My technical expertise spans across GIS software, hydrological modeling, satellite data interpretation, and advanced programming languages.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Technical Skills</h2>
+                <p class="section-subtitle">Comprehensive expertise across geospatial technologies and water resource management tools</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-map"></i> GIS & Remote Sensing</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">ArcGIS Pro</span>
+                        <span class="skill-tag">QGIS</span>
+                        <span class="skill-tag">ERDAS Imagine</span>
+                        <span class="skill-tag">ENVI</span>
+                        <span class="skill-tag">SNAP</span>
+                        <span class="skill-tag">Google Earth Engine</span>
+                        <span class="skill-tag">MapInfo</span>
+                        <span class="skill-tag">Idrisi</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-water"></i> Hydrological Modeling</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HEC-RAS</span>
+                        <span class="skill-tag">HEC-GeoHMS</span>
+                        <span class="skill-tag">SWAT</span>
+                        <span class="skill-tag">SOBEK</span>
+                        <span class="skill-tag">WMS</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">MATLAB</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Surveying Equipment</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Total Station</span>
+                        <span class="skill-tag">GPS RTK</span>
+                        <span class="skill-tag">Leica Equipment</span>
+                        <span class="skill-tag">ADCP</span>
+                        <span class="skill-tag">Echo Sounder</span>
+                        <span class="skill-tag">Digital Level</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-drafting-compass"></i> Engineering Design</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AutoCAD</span>
+                        <span class="skill-tag">Civil 3D</span>
+                        <span class="skill-tag">Primavera</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-globe-americas"></i> Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Arabic (Native)</span>
+                        <span class="skill-tag">English (B2-C1)</span>
+                        <span class="skill-tag">Turkish (B2)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Professional Experience</h2>
+                <p class="section-subtitle">Leading innovative projects in water resource management and geospatial analysis</p>
+            </div>
+            <div class="experience-timeline">
+                <div class="experience-item">
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div>
+                                <div class="job-title">Teaching & Research Assistant</div>
+                                <div class="company">Hydraulics Research Center - Ministry of Irrigation and Water Resources</div>
+                            </div>
+                            <div class="job-period">Oct 2018 - Current</div>
+                        </div>
+                        <ul style="margin-left: 1rem;">
+                            <li>Conduct GIS and remote sensing analysis for water resources and irrigation projects</li>
+                            <li>Develop spatial databases using machine and deep learning for crop mapping</li>
+                            <li>Support national projects with FAO, IFAD, and other international agencies</li>
+                            <li>Prepare technical reports and spatial data products for decision-making</li>
+                            <li>Teach and supervise students in GIS, remote sensing, and surveying</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-card">
+                        <div class="experience-header">
+                            <div>
+                                <div class="job-title">Land Surveyor</div>
+                                <div class="company">Ministry of Infrastructure and Transport</div>
+                            </div>
+                            <div class="job-period">Aug 2017 - Aug 2018</div>
+                        </div>
+                        <ul style="margin-left: 1rem;">
+                            <li>Designed and reviewed road infrastructure plans and tender documents</li>
+                            <li>Conducted feasibility studies for road construction and rehabilitation</li>
+                            <li>Collected survey data using total stations and GPS tools</li>
+                            <li>Prepared technical reports and project documentation</li>
+                            <li>Coordinated with stakeholders and international organizations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section" style="background: var(--bg-secondary);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Key Projects</h2>
+                <p class="section-subtitle">Innovative solutions in water management, remote sensing, and agricultural monitoring</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-satellite project-icon"></i>
+                        <div class="project-period">May 2023 - July 2024</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">GIS & Remote Sensing for Powered Water Management</h3>
+                        <p>Developing comprehensive spatial databases integrating remote sensing, field, and socio-economic data to support sustainable water management and irrigation optimization in the Gezira Scheme.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-seedling project-icon"></i>
+                        <div class="project-period">Jan 2023 - Sep 2024</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Remote Sensing Monitoring & Yield Forecasting (FAO)</h3>
+                        <p>Used WaPOR and field data to produce monthly crop water use reports and yield forecasts. Improved monitoring by 15% and productivity by 9% using SVM for crop classification.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-tint project-icon"></i>
+                        <div class="project-period">Mar 2019 - July 2021</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Water Management Assessment (IFAD)</h3>
+                        <p>Utilized modern surveying and GIS techniques to assess water infrastructure and agricultural productivity, modeled irrigation networks, and optimized water allocation strategies for Gash Irrigation Scheme.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-river project-icon"></i>
+                        <div class="project-period">Dec 2018 - June 2020</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Nile Gauging Station Site Selection</h3>
+                        <p>Conducted hydrographic and geomorphologic surveys to identify optimal locations for Nile discharge gauging station upstream of High Aswan Dam. Coordinated with Egyptian authorities.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-mountain project-icon"></i>
+                        <div class="project-period">Dec 2019 - Apr 2020</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Catchment Management in South Darfur (ZOA)</h3>
+                        <p>Conducted hydrological field surveys and catchment modeling to support infrastructure development and flood risk planning using rainfall, soil moisture, and streamflow data.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-header">
+                        <i class="fas fa-chart-line project-icon"></i>
+                        <div class="project-period">Nov 2018 - May 2021</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">GIS-Based Crop Mapping</h3>
+                        <p>Used satellite imagery and machine learning for crop classification and cultivated area estimation for Gezira and Rahad Irrigation Schemes, enhancing accuracy and reducing costs over manual methods.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section" style="padding-bottom: 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Education</h2>
+                <p class="section-subtitle">Advanced academic background in geomatics and surveying engineering</p>
+            </div>
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="degree">Master in Geomatics Engineering</div>
+                    <div class="university">Karadeniz Technical University, Turkey</div>
+                    <div class="education-details">
+                        <div class="detail-item">
+                            <i class="fas fa-calendar"></i>
+                            2022 - 2024
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-trophy"></i>
+                            GPA: 3.50/4.00
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-book"></i>
+                            Crop & Livestock Production
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            Remote Sensing Specialist
+                        </div>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary);">
+                        <strong>Thesis:</strong> The use of remote sensing for monitoring agricultural products in the Gezira Irrigation Scheme, Sudan
+                    </p>
+                </div>
+                <div class="education-card">
+                    <div class="degree">B.Sc. Honours in Surveying Engineering</div>
+                    <div class="university">Omdurman Islamic University, Sudan</div>
+                    <div class="education-details">
+                        <div class="detail-item">
+                            <i class="fas fa-calendar"></i>
+                            2012 - 2017
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-trophy"></i>
+                            First Class Honours
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-book"></i>
+                            GIS Technology
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-medal"></i>
+                            Cum Laude
+                        </div>
+                    </div>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary);">
+                        <strong>Thesis:</strong> Evaluating Roads within Omdurman Islamic University Utilising Geographic Information Systems Technology
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="section certificates-section" style="padding-top: 3rem; margin-top: 0;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Professional Certifications</h2>
+                <p class="section-subtitle">Continuous learning and professional development in cutting-edge technologies</p>
+            </div>
+            
+            <!-- Certificate Filter -->
+            <div class="certificate-search-container">
+                <input type="text" id="certificate-search" placeholder="🔍 Search certificates..." class="certificate-search-input">
+            </div>
+            
+            <div class="certificate-filter">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th"></i> All Certificates
+                </button>
+                <button class="filter-btn" data-filter="remote-sensing">
+                    <i class="fas fa-satellite"></i> Remote Sensing
+                </button>
+                <button class="filter-btn" data-filter="gis">
+                    <i class="fas fa-map"></i> GIS & Mapping
+                </button>
+                <button class="filter-btn" data-filter="programming">
+                    <i class="fas fa-code"></i> Programming
+                </button>
+                <button class="filter-btn" data-filter="water">
+                    <i class="fas fa-tint"></i> Water Management
+                </button>
+            </div>
+
+            <div class="certificates-grid">
+                <!-- 2024 Certificates -->
+                <div class="certificate-card premium" data-category="programming" data-year="2024">
+                    <div class="certificate-header">
+                        <div class="certificate-badge">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div class="certificate-year">2024</div>
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Data Analysis with Python</h3>
+                        <div class="certificate-issuer">
+                            <i class="fas fa-university"></i>
+                            IBM
+                        </div>
+                        <div class="certificate-duration">
+                            <i class="fas fa-clock"></i>
+                            Jan 2024 - Mar 2024
+                        </div>
+                        <div class="certificate-skills">
+                            <span class="cert-skill">Python</span>
+                            <span class="cert-skill">Pandas</span>
+                            <span class="cert-skill">Data Visualization</span>
+                            <span class="cert-skill">Statistical Analysis</span>
+                        </div>
+                        <div class="certificate-description">
+                            Advanced course on data analysis using Python, covering data wrangling, exploratory analysis, and visualization with Pandas, Numpy, Matplotlib, and Seaborn.
+                        </div>
+                    </div>
+                    <div class="certificate-footer">
+                        <a href="https://www.coursera.org/account/accomplishments/verify/VCKACJAQ92VV" class="cert-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2023 Certificates -->
+                <div class="certificate-card premium" data-category="remote-sensing" data-year="2023">
+                    <div class="certificate-header">
+                        <div class="certificate-badge">
+                            <i class="fas fa-satellite-dish"></i>
+                        </div>
+                        <div class="certificate-year">2023</div>
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Remote Sensing Image Acquisition, Analysis and Applications</h3>
+                        <div class="certificate-issuer">
+                            <i class="fas fa-university"></i>
+                            UNSW Sydney & IEEE
+                        </div>
+                        <div class="certificate-duration">
+                            <i class="fas fa-clock"></i>
+                            Oct 2023 - Dec 2023
+                        </div>
+                        <div class="certificate-skills">
+                            <span class="cert-skill">Satellite Imagery</span>
+                            <span class="cert-skill">Spectral Analysis</span>
+                            <span class="cert-skill">Image Processing</span>
+                            <span class="cert-skill">Environmental Monitoring</span>
+                        </div>
+                        <div class="certificate-description">
+                            Advanced course on remote sensing principles, satellite image acquisition techniques, spectral signatures, and environmental applications.
+                        </div>
+                    </div>
+                    <div class="certificate-footer">
+                        <a href="https://coursera.org/verify" class="cert-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <div class="certificate-card" data-category="gis" data-year="2023">
+                    <div class="certificate-header">
+                        <div class="certificate-badge">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <div class="certificate-year">2023</div>
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Geospatial Analysis with ArcGIS</h3>
+                        <div class="certificate-issuer">
+                            <i class="fas fa-university"></i>
+                            University of California, Davis
+                        </div>
+                        <div class="certificate-duration">
+                            <i class="fas fa-clock"></i>
+                            Sep 2023 - Nov 2023
+                        </div>
+                        <div class="certificate-skills">
+                            <span class="cert-skill">ArcGIS Pro</span>
+                            <span class="cert-skill">Spatial Analysis</span>
+                            <span class="cert-skill">Geoprocessing</span>
+                            <span class="cert-skill">Map Design</span>
+                        </div>
+                        <div class="certificate-description">
+                            Comprehensive course on spatial data analysis using ArcGIS, covering spatial joins, raster analysis, and professional map creation.
+                        </div>
+                    </div>
+                    <div class="certificate-footer">
+                        <a href="https://coursera.org/verify" class="cert-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <div class="certificate-card" data-category="gis" data-year="2023">
+                    <div class="certificate-header">
+                        <div class="certificate-badge">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                        <div class="certificate-year">2023</div>
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Spatial Analysis and Satellite Imagery in a GIS</h3>
+                        <div class="certificate-issuer">
+                            <i class="fas fa-university"></i>
+                            University of Toronto
+                        </div>
+                        <div class="certificate-duration">
+                            <i class="fas fa-clock"></i>
+                            Aug 2023 - Nov 2023
+                        </div>
+                        <div class="certificate-skills">
+                            <span class="cert-skill">Satellite GIS</span>
+                            <span class="cert-skill">Change Detection</span>
+                            <span class="cert-skill">Land Cover</span>
+                            <span class="cert-skill">Environmental Monitoring</span>
+                        </div>
+                        <div class="certificate-description">
+                            Specialized course on integrating satellite imagery with GIS for spatial analysis, emphasizing land cover classification and change detection.
+                        </div>
+                    </div>
+                    <div class="certificate-footer">
+                        <a href="https://www.coursera.org/account/accomplishments/verify/729AQRHDM2UW" class="cert-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <div class="certificate-card premium" data-category="programming" data-year="2023">
+                    <div class="certificate-header">
+                        <div class="certificate-badge">
+                            <i class="fab fa-r-project"></i>
+                        </div>
+                        <div class="certificate-year">2023</div>
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Data Analysis with R Programming</h3>
+                        <div class="certificate-issuer">
+                            <i class="fas fa-google"></i>
+                            Google
+                        </div>
+                        <div class="certificate-duration">
+                            <i class="fas fa-clock"></i>
+                            May 2023 - Dec 2023
+                        </div>
+                        <div class="certificate-skills">
+                            <span class="cert-skill">R Programming</span>
+                            <span class="cert-skill">Tidyverse</span>
+                            <span class="cert-skill">Data Visualization</span>
+                            <span class="cert-skill">Statistical Analysis</span>
+                        </div>
+                        <div class="certificate-description">
+                            Hands-on course on data analysis using R, covering data cleaning, visualization, and statistical analysis with tidyverse packages.
+                        </div>
+                    </div>
+                    <div class="certificate-footer">
+                        <a href="https://www.coursera.org/account/accomplishments/verify/KJ4JQPDC2J52" class="cert-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2021 Certificates -->
+                <div class="certificate-card premium" data-category="water" data-year="2021">
+                    <div class="certificate-header">
+                        <div class="certificate-badge">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <div class="certificate-year">2021</div>
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Hydraulic Engineering in River Basins</h3>
+                        <div class="certificate-issuer">
+                            <i class="fas fa-university"></i>
+                            Regional Training Center - Hydraulics Research Institute
+                        </div>
+                        <div class="certificate-duration">
+                            <i class="fas fa-clock"></i>
+                            Dec 2020 - Mar 2021
+                        </div>
+                        <div class="certificate-skills">
+                            <span class="cert-skill">River Engineering</span>
+                            <span class="cert-skill">Flood Control</span>
+                            <span class="cert-skill">Watershed Management</span>
+                            <span class="cert-skill">Hydraulic Design</span>
+                        </div>
+                        <div class="certificate-description">
+                            Intensive training on hydraulic systems design, modeling, and management in river basins, covering flow dynamics and infrastructure projects.
+                        </div>
+                    </div>
+                    <div class="certificate-footer">
+                        <a href="https://drive.google.com/file/d/1Crq_bwviW13QAtYByUpjKDV9ORhUPIfI/view" class="cert-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2020 Certificates -->
+                <div class="certificate-card" data-category="water" data-year="2020">
+                    <div class="certificate-header">
+                        <div class="certificate-badge">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="certificate-year">2020</div>
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">GIS & RS in WaPOR System</h3>
+                        <div class="certificate-issuer">
+                            <i class="fas fa-building"></i>
+                            Hydraulics Research Center
+                        </div>
+                        <div class="certificate-duration">
+                            <i class="fas fa-clock"></i>
+                            Sep 2020 - Oct 2020
+                        </div>
+                        <div class="certificate-skills">
+                            <span class="cert-skill">WaPOR Database</span>
+                            <span class="cert-skill">Water Productivity</span>
+                            <span class="cert-skill">Agricultural Monitoring</span>
+                            <span class="cert-skill">FAO Systems</span>
+                        </div>
+                        <div class="certificate-description">
+                            Training on agricultural water productivity assessment using FAO's WaPOR database and open-source geospatial tools.
+                        </div>
+                    </div>
+                    <div class="certificate-footer">
+                        <a href="https://drive.google.com/file/d/1y3Id-15QSpiNNJHyAUES1KEGcedxOfAN/view" class="cert-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <div class="certificate-card" data-category="gis" data-year="2020">
+                    <div class="certificate-header">
+                        <div class="certificate-badge">
+                            <i class="fab fa-qq"></i>
+                        </div>
+                        <div class="certificate-year">2020</div>
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Geographic Information System (GIS) using QGIS</h3>
+                        <div class="certificate-issuer">
+                            <i class="fas fa-globe"></i>
+                            IOM–UN Migration, UNAMID, and WES Sudan
+                        </div>
+                        <div class="certificate-duration">
+                            <i class="fas fa-clock"></i>
+                            Dec 2019 - Jan 2020
+                        </div>
+                        <div class="certificate-skills">
+                            <span class="cert-skill">QGIS</span>
+                            <span class="cert-skill">Open Source GIS</span>
+                            <span class="cert-skill">Humanitarian Mapping</span>
+                            <span class="cert-skill">Field Data Integration</span>
+                        </div>
+                        <div class="certificate-description">
+                            Hands-on training on QGIS for humanitarian and environmental applications, supported by international organizations.
+                        </div>
+                    </div>
+                    <div class="certificate-footer">
+                        <a href="https://drive.google.com/file/d/1QWs0l12Cpd_8mn5zbROP09OiDhRYWQe9/view" class="cert-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2019 Certificates -->
+                <div class="certificate-card premium" data-category="programming" data-year="2019">
+                    <div class="certificate-header">
+                        <div class="certificate-badge">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div class="certificate-year">2019</div>
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Python for GIS Development</h3>
+                        <div class="certificate-issuer">
+                            <i class="fas fa-university"></i>
+                            PARIS Training Center
+                        </div>
+                        <div class="certificate-duration">
+                            <i class="fas fa-clock"></i>
+                            Sep 2019 - Oct 2019
+                        </div>
+                        <div class="certificate-skills">
+                            <span class="cert-skill">ArcPy</span>
+                            <span class="cert-skill">GeoPandas</span>
+                            <span class="cert-skill">PyQGIS</span>
+                            <span class="cert-skill">Automation</span>
+                        </div>
+                        <div class="certificate-description">
+                            Specialized training on developing GIS tools and automating spatial workflows using Python programming language.
+                        </div>
+                    </div>
+                    <div class="certificate-footer">
+                        <a href="https://drive.google.com/file/d/1oA1E_3bgPw4H7UBS90VXp2Os_2eJ5Chs/view" class="cert-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <div class="certificate-card" data-category="remote-sensing" data-year="2019">
+                    <div class="certificate-header">
+                        <div class="certificate-badge">
+                            <i class="fas fa-satellite"></i>
+                        </div>
+                        <div class="certificate-year">2019</div>
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">Basics of Remote Sensing and Water Harvesting Applications</h3>
+                        <div class="certificate-issuer">
+                            <i class="fas fa-graduation-cap"></i>
+                            UNESCO RCWH - Ministry of Water Resources
+                        </div>
+                        <div class="certificate-duration">
+                            <i class="fas fa-clock"></i>
+                            Mar 2019 - Mar 2019
+                        </div>
+                        <div class="certificate-skills">
+                            <span class="cert-skill">Remote Sensing Basics</span>
+                            <span class="cert-skill">Water Harvesting</span>
+                            <span class="cert-skill">Terrain Analysis</span>
+                            <span class="cert-skill">Hydrological Mapping</span>
+                        </div>
+                        <div class="certificate-description">
+                            Specialized training on remote sensing principles and applications for water harvesting and resource planning in arid regions.
+                        </div>
+                    </div>
+                    <div class="certificate-footer">
+                        <a href="https://drive.google.com/file/d/1y2x33J6_gLaR8pcNutdJTuvg75XBGxar/view" class="cert-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Certificate
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Ongoing Certification -->
+                <div class="certificate-card special ongoing" data-category="gis" data-year="2018">
+                    <div class="certificate-header">
+                        <div class="certificate-badge">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div class="certificate-year">Ongoing</div>
+                    </div>
+                    <div class="certificate-content">
+                        <h3 class="certificate-title">GIS, RS, and Surveying Technologies Instructor</h3>
+                        <div class="certificate-issuer">
+                            <i class="fas fa-building"></i>
+                            Hydraulics Research Center (HRC)
+                        </div>
+                        <div class="certificate-duration">
+                            <i class="fas fa-infinity"></i>
+                            Dec 2018 - Current
+                        </div>
+                        <div class="certificate-skills">
+                            <span class="cert-skill">Technical Training</span>
+                            <span class="cert-skill">Capacity Building</span>
+                            <span class="cert-skill">Professional Development</span>
+                            <span class="cert-skill">Mentoring</span>
+                        </div>
+                        <div class="certificate-description">
+                            Certified instructor delivering technical training on GIS, Remote Sensing, and surveying technologies to engineers and researchers.
+                        </div>
+                    </div>
+                    <div class="certificate-footer">
+                        <a href="https://drive.google.com/file/d/1SIr3CUoon4n8e70MjaER5qkWnFEXNVun/view" class="cert-link" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> View Certificate
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificates Statistics -->
+            <div class="certificates-stats">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="stat-number" data-count="11">0</div>
+                    <div class="stat-label">Professional Certificates</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="stat-number" data-count="8">0</div>
+                    <div class="stat-label">Prestigious Institutions</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-number" data-count="200">0</div>
+                    <div class="stat-label">Training Hours</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <div class="stat-number" data-count="6">0</div>
+                    <div class="stat-label">Years of Learning</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" style="color: white;">Get In Touch</h2>
+                <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.9);">Ready to collaborate on innovative geospatial solutions and water resource projects</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <a href="mailto:osmangeomatics93@gmail.com" class="contact-link">osmangeomatics93@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Phone</h3>
+                    <a href="tel:+905319464405" class="contact-link">+90 531 946 4405</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp</h3>
+                    <a href="https://wa.me/905319464405" class="contact-link" target="_blank">Message Me</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <h3>LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/osman-o-a-ibrahim-a02a9a197" class="contact-link" target="_blank">Osman O. A. Ibrahim</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <h3>GitHub</h3>
+                    <a href="https://github.com/Osman-Geomatics93/Osman-Geomatics93.git" class="contact-link" target="_blank">View Projects</a>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Location</h3>
+                    <p class="contact-link">Trabzon, Turkey</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Osman Ibrahim. All rights reserved. | Geospatial Solutions for Sustainable Development</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll progress bar
+        function updateScrollProgress() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.querySelector('.scroll-progress-bar').style.width = scrollPercent + '%';
+        }
+
+        // Back to top button visibility
+        function toggleBackToTop() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }
+
+        // Section animation on scroll
+        function animateOnScroll() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight * 0.75;
+                
+                if (isVisible) {
+                    section.classList.add('visible');
+                }
+            });
+        }
+
+        // Navbar background on scroll
+        function updateNavbar() {
+            const navbar = document.querySelector('.navbar');
+            if (window.pageYOffset > 50) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+            }
+        }
+
+        // Event listeners
+        window.addEventListener('scroll', () => {
+            updateScrollProgress();
+            toggleBackToTop();
+            animateOnScroll();
+            updateNavbar();
+        });
+
+        // Initial animation check
+        window.addEventListener('load', () => {
+            animateOnScroll();
+        });
+
+        // Add stagger animation to skill tags
+        document.querySelectorAll('.skill-category').forEach((category, index) => {
+            category.style.animationDelay = `${index * 0.1}s`;
+            category.classList.add('fade-in-up');
+        });
+
+        // Add hover effect to project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(-10px) scale(1)';
+            });
+        });
+
+        // Typing effect for hero subtitle
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            setTimeout(type, 2000); // Start after hero animation
+        }
+
+        // Initialize typing effect
+        window.addEventListener('load', () => {
+            const subtitle = document.querySelector('.hero-text .subtitle');
+            if (subtitle) {
+                const originalText = subtitle.textContent;
+                typeWriter(subtitle, originalText, 80);
+            }
+        });
+
+        // Certificate filtering functionality
+        function initCertificateFilters() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const certificateCards = document.querySelectorAll('.certificate-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    btn.classList.add('active');
+
+                    const filter = btn.getAttribute('data-filter');
+
+                    certificateCards.forEach(card => {
+                        const category = card.getAttribute('data-category');
+                        
+                        if (filter === 'all' || category === filter) {
+                            card.classList.remove('filtered');
+                            card.classList.add('visible');
+                        } else {
+                            card.classList.add('filtered');
+                            card.classList.remove('visible');
+                        }
+                    });
+                });
+            });
+        }
+
+        // Statistics counter animation
+        function animateCounters() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.getAttribute('data-count'));
+                const duration = 2000; // 2 seconds
+                const step = target / (duration / 16); // 60fps
+                let current = 0;
+
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current);
+                }, 16);
+            });
+        }
+
+        // Initialize certificate section when it becomes visible
+        function initCertificatesOnScroll() {
+            const certificatesSection = document.getElementById('certificates');
+            if (!certificatesSection) return;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Animate statistics
+                        animateCounters();
+                        
+                        // Add stagger animation to certificate cards
+                        const cards = document.querySelectorAll('.certificate-card');
+                        cards.forEach((card, index) => {
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, index * 100);
+                        });
+
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            observer.observe(certificatesSection);
+        }
+
+        // Certificate card hover effects
+        function initCertificateHoverEffects() {
+            const certificateCards = document.querySelectorAll('.certificate-card');
+            
+            certificateCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    // Add subtle tilt effect
+                    const rect = this.getBoundingClientRect();
+                    const x = event.clientX - rect.left;
+                    const y = event.clientY - rect.top;
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    const rotateX = (y - centerY) / 10;
+                    const rotateY = (centerX - x) / 10;
+                    
+                    this.style.transform = `translateY(-15px) scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1) rotateX(0) rotateY(0)';
+                });
+            });
+        }
+
+        // Random floating animation for certificate badges
+        function animateCertificateBadges() {
+            const badges = document.querySelectorAll('.certificate-badge');
+            
+            badges.forEach((badge, index) => {
+                // Add random delay and animation
+                badge.style.animationDelay = `${index * 0.5}s`;
+                
+                // Add floating effect
+                setInterval(() => {
+                    const randomY = Math.random() * 10 - 5; // Random between -5 and 5
+                    badge.style.transform = `rotate(${index * 360}deg) translateY(${randomY}px)`;
+                }, 2000 + (index * 500));
+            });
+        }
+
+        // Search functionality for certificates
+        function initCertificateSearch() {
+            // Create search input if it doesn't exist
+            const filterContainer = document.querySelector('.certificate-filter');
+            if (filterContainer) {
+                const searchInput = document.createElement('input');
+                searchInput.type = 'text';
+                searchInput.placeholder = '🔍 Search certificates...';
+                searchInput.className = 'certificate-search';
+                searchInput.style.cssText = `
+                    background: rgba(255, 255, 255, 0.1);
+                    backdrop-filter: blur(20px);
+                    border: 2px solid rgba(255, 255, 255, 0.2);
+                    color: white;
+                    padding: 12px 20px;
+                    border-radius: 50px;
+                    margin-bottom: 1rem;
+                    width: 300px;
+                    font-size: 1rem;
+                    transition: all 0.3s ease;
+                `;
+
+                searchInput.addEventListener('focus', function() {
+                    this.style.background = 'rgba(255, 255, 255, 0.2)';
+                    this.style.borderColor = 'rgba(255, 255, 255, 0.4)';
+                });
+
+                searchInput.addEventListener('blur', function() {
+                    this.style.background = 'rgba(255, 255, 255, 0.1)';
+                    this.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                });
+
+                // Add search functionality
+                searchInput.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    const certificateCards = document.querySelectorAll('.certificate-card');
+
+                    certificateCards.forEach(card => {
+                        const title = card.querySelector('.certificate-title').textContent.toLowerCase();
+                        const issuer = card.querySelector('.certificate-issuer').textContent.toLowerCase();
+                        const skills = Array.from(card.querySelectorAll('.cert-skill')).map(skill => skill.textContent.toLowerCase()).join(' ');
+
+                        if (title.includes(searchTerm) || issuer.includes(searchTerm) || skills.includes(searchTerm)) {
+                            card.style.display = 'block';
+                            card.classList.remove('filtered');
+                        } else {
+                            card.style.display = 'none';
+                            card.classList.add('filtered');
+                        }
+                    });
+                });
+
+                filterContainer.parentNode.insertBefore(searchInput, filterContainer);
+            }
+        }
+
+        // Initialize all certificate functionality
+        window.addEventListener('load', () => {
+            initCertificateFilters();
+            initCertificatesOnScroll();
+            initCertificateHoverEffects();
+            animateCertificateBadges();
+            initCertificateSearch();
+        });
+
+        // Enhanced scroll animations for certificates
+        window.addEventListener('scroll', () => {
+            updateScrollProgress();
+            toggleBackToTop();
+            animateOnScroll();
+            updateNavbar();
+            
+            // Parallax effect for certificate section
+            const certificatesSection = document.getElementById('certificates');
+            if (certificatesSection) {
+                const scrolled = window.pageYOffset;
+                const parallax = scrolled * 0.5;
+                certificatesSection.style.transform = `translateY(${parallax}px)`;
+            }
+        });
+
+        // Profile image loading with multiple backup URLs
+        window.addEventListener('load', () => {
+            const profilePhoto = document.querySelector('.profile-photo');
+            if (profilePhoto) {
+                // Multiple URL formats for your Imgur image
+                const imageUrls = [
+                    'https://i.imgur.com/Lpzxt35.jpeg',  // Direct Imgur URL
+                    'https://i.imgur.com/Lpzxt35.jpg',   // Alternative extension
+                    'https://imgur.com/Lpzxt35.jpeg',    // Alternative format
+                    'https://imgur.com/Lpzxt35.jpg',     // Alternative format
+                    'https://raw.githubusercontent.com/Osman-Geomatics93/Osman-Geomatics93/main/CV_Image.jpeg', // GitHub backup
+                    'https://via.placeholder.com/200x200/667eea/white?text=OI' // Fallback placeholder
+                ];
+                
+                let currentUrlIndex = 0;
+                
+                function tryNextUrl() {
+                    if (currentUrlIndex < imageUrls.length) {
+                        profilePhoto.src = imageUrls[currentUrlIndex];
+                        currentUrlIndex++;
+                    } else {
+                        // All URLs failed, show professional fallback
+                        profilePhoto.style.display = 'none';
+                        const fallbackIcon = document.createElement('i');
+                        fallbackIcon.className = 'fas fa-user-tie';
+                        fallbackIcon.style.fontSize = '4rem';
+                        fallbackIcon.style.color = 'white';
+                        fallbackIcon.style.textShadow = '0 2px 10px rgba(0,0,0,0.3)';
+                        profilePhoto.parentElement.appendChild(fallbackIcon);
+                    }
+                }
+
+                profilePhoto.addEventListener('load', function() {
+                    this.style.opacity = '1';
+                    this.parentElement.classList.add('photo-loaded');
+                    console.log('✅ Image loaded successfully from:', this.src);
+                });
+
+                profilePhoto.addEventListener('error', function() {
+                    console.log('❌ Image failed to load from:', this.src);
+                    setTimeout(tryNextUrl, 100); // Small delay before trying next URL
+                });
+
+                // Add subtle animation on load
+                profilePhoto.style.opacity = '0';
+                profilePhoto.style.transition = 'opacity 0.5s ease';
+                
+                // Start loading
+                tryNextUrl();
+            }
+        });
+
+        // Add floating animation to profile card
+        function animateProfileCard() {
+            const profileCard = document.querySelector('.profile-card');
+            if (profileCard) {
+                let floatDirection = 1;
+                setInterval(() => {
+                    floatDirection *= -1;
+                    profileCard.style.transform = `translateY(${floatDirection * 5}px)`;
+                }, 3000);
+            }
+        }
+
+        // Initialize profile animations
+        window.addEventListener('load', () => {
+            animateProfileCard();
+        });
+    </script>
+</body>
+</html>
