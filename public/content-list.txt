@@ -1,0 +1,36 @@
+MSc-Research-Website-Content-Inventory.txt
+
+=== IMAGES/MAPS I HAVE ===
+□ Study area map of Gezira Irrigation Scheme
+□ Crop classification result maps for Elgabel Office  
+□ Crop classification result maps for Elhoosh Office
+□ Crop classification result maps for Wad Elbasir Office
+□ Water productivity comparison charts
+□ Wheat yield analysis graphs
+□ Machine learning model accuracy charts
+□ Before/after satellite imagery
+□ Methodology flowchart diagram
+□ Field work photos
+
+=== DOCUMENTS I HAVE ===
+□ Complete thesis PDF (120 pages)
+□ Thesis presentation slides
+□ Conference papers (if any)
+□ Research proposal
+□ Questionnaire results
+
+=== VIDEOS I HAVE ===
+□ Field work footage
+□ Thesis defense recording
+□ Presentation video
+□ Drone footage of study area
+□ (List "NONE" if you don't have videos yet)
+
+=== KEY RESEARCH METRICS ===
+- Exact thesis title: "___________"
+- Study area size: _______ hectares
+- Accuracy achieved: _____%
+- Offices studied: 3 (Elgabel, Elhoosh, Wad Elbasir)
+- Crop types analyzed: _______
+- Machine learning models used: _______
+- Main water productivity improvement: _____%
