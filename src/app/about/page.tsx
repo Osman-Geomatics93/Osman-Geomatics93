@@ -4,16 +4,25 @@
 import React, { useState, useEffect } from 'react'
 import { MapPin, GraduationCap, Award, Globe, Users, Calendar, ArrowRight, Heart, Target, Lightbulb, Star, Sparkles } from 'lucide-react'
 
+// Define the particle type interface
+interface Particle {
+  id: number;
+  left: number;
+  top: number;
+  animationDelay: number;
+  animationDuration: number;
+}
+
 export default function AboutPage() {
   const [isVisible, setIsVisible] = useState(false)
   const [activeSection, setActiveSection] = useState(0)
-  const [particles, setParticles] = useState([])
+  const [particles, setParticles] = useState<Particle[]>([]) // Fixed: Properly typed
 
   useEffect(() => {
     setIsVisible(true)
     
     // Generate particles on client side only to avoid hydration mismatch
-    const newParticles = Array.from({ length: 15 }, (_, i) => ({
+    const newParticles: Particle[] = Array.from({ length: 15 }, (_, i) => ({
       id: i,
       left: Math.random() * 100,
       top: Math.random() * 100,
@@ -109,12 +118,12 @@ export default function AboutPage() {
 
               <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
                 <p className="hover:text-white transition-colors duration-300">
-                  I'm <strong className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Osman Osama Ahmed Ibrahim</strong>, a Senior Surveying & Geomatics Engineer 
+                  I&apos;m <strong className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Osman Osama Ahmed Ibrahim</strong>, a Senior Surveying & Geomatics Engineer 
                   with over 8 years of experience transforming landscapes through cutting-edge geospatial technology.
                 </p>
                 <p className="hover:text-white transition-colors duration-300">
                   Born in <strong className="text-yellow-400">Khartoum, Sudan</strong>, my journey has taken me from the banks of the Nile to the 
-                  mountains of Turkey, where I've dedicated my career to solving complex water resource challenges 
+                  mountains of Turkey, where I&apos;ve dedicated my career to solving complex water resource challenges 
                   that impact millions of lives.
                 </p>
                 <p className="hover:text-white transition-colors duration-300">
@@ -136,7 +145,7 @@ export default function AboutPage() {
                 ].map((fact, index) => (
                   <div 
                     key={index}
-                    className={`bg-white/10 backdrop-blur-sm p-4 rounded-lg hover:bg-white/20 transition-all duration-500 transform hover:scale-105 group`}
+                    className="bg-white/10 backdrop-blur-sm p-4 rounded-lg hover:bg-white/20 transition-all duration-500 transform hover:scale-105 group"
                     style={{ animationDelay: `${index * 200}ms` }}
                   >
                     <div className="flex items-center space-x-2 mb-2">
@@ -195,7 +204,7 @@ export default function AboutPage() {
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="group">
-                  <h4 className="font-semibold text-white mb-2 group-hover:text-cyan-300 transition-colors">Master's Degree (2022-2024)</h4>
+                  <h4 className="font-semibold text-white mb-2 group-hover:text-cyan-300 transition-colors">Master&apos;s Degree (2022-2024)</h4>
                   <p className="text-cyan-300 mb-2">
                     <strong>Karadeniz Technical University, Turkey</strong>
                   </p>
@@ -204,12 +213,12 @@ export default function AboutPage() {
                   </p>
                   <p className="text-sm text-gray-300 group-hover:text-white transition-colors">
                     Specialized in remote sensing applications for agricultural monitoring, 
-                    with thesis on "The use of remote sensing for monitoring agricultural products 
-                    in the Gezira Irrigation Scheme, Sudan"
+                    with thesis on &quot;The use of remote sensing for monitoring agricultural products 
+                    in the Gezira Irrigation Scheme, Sudan&quot;
                   </p>
                 </div>
                 <div className="group">
-                  <h4 className="font-semibold text-white mb-2 group-hover:text-cyan-300 transition-colors">Bachelor's Degree (2012-2017)</h4>
+                  <h4 className="font-semibold text-white mb-2 group-hover:text-cyan-300 transition-colors">Bachelor&apos;s Degree (2012-2017)</h4>
                   <p className="text-cyan-300 mb-2">
                     <strong>Omdurman Islamic University, Sudan</strong>
                   </p>
@@ -218,8 +227,8 @@ export default function AboutPage() {
                   </p>
                   <p className="text-sm text-gray-300 group-hover:text-white transition-colors">
                     Graduated with distinction, focusing on Geographic Information Systems Technology. 
-                    Thesis: "Evaluating Roads within Omdurman Islamic University Utilising 
-                    Geographic Information Systems Technology"
+                    Thesis: &quot;Evaluating Roads within Omdurman Islamic University Utilising 
+                    Geographic Information Systems Technology&quot;
                   </p>
                 </div>
               </div>
@@ -349,18 +358,18 @@ export default function AboutPage() {
           </h2>
           <div className="text-lg text-gray-300 space-y-4">
             <p className="hover:text-white transition-colors duration-300">
-              When I'm not analyzing satellite imagery or conducting field surveys, I'm passionate 
+              When I&apos;m not analyzing satellite imagery or conducting field surveys, I&apos;m passionate 
               about bridging cultures and sharing knowledge. My journey from Sudan to Turkey has 
               given me a unique perspective on how technology can transcend borders.
             </p>
             <p className="hover:text-white transition-colors duration-300">
-              I'm fluent in <strong className="text-blue-400">Arabic</strong>, <strong className="text-green-400">English</strong>, 
+              I&apos;m fluent in <strong className="text-blue-400">Arabic</strong>, <strong className="text-green-400">English</strong>, 
               and <strong className="text-purple-400">Turkish</strong>, which has been invaluable in my international work. 
               I believe that effective communication is just as important as technical expertise.
             </p>
             <p className="hover:text-white transition-colors duration-300">
-              I'm also committed to knowledge sharing and capacity building. Through my work at the 
-              Hydraulics Research Center, I've had the privilege of training over 200 professionals 
+              I&apos;m also committed to knowledge sharing and capacity building. Through my work at the 
+              Hydraulics Research Center, I&apos;ve had the privilege of training over 200 professionals 
               in geospatial technologies, contributing to the next generation of engineers.
             </p>
           </div>
@@ -371,12 +380,12 @@ export default function AboutPage() {
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white/5 backdrop-blur-sm relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent mb-4">
-            Let's Work Together
+            Let&apos;s Work Together
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            I'm always excited to collaborate on projects that combine technical innovation 
-            with meaningful impact. Whether you're planning a water resource management 
-            initiative or need expertise in remote sensing applications, I'd love to hear from you.
+            I&apos;m always excited to collaborate on projects that combine technical innovation 
+            with meaningful impact. Whether you&apos;re planning a water resource management 
+            initiative or need expertise in remote sensing applications, I&apos;d love to hear from you.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
